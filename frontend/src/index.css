@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-primary: #6366f1;
+  --color-secondary: #0ea5e9;
+  --color-surface: var(--surface);
+  --color-background: var(--background);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+  
+  --font-sans: "Inter", "Roboto", "sans-serif";
+}
+
+:root {
+  --background: #f1f5f9;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --track-bg: #e2e8f0;
+}
+
+.dark {
+  --background: #0f172a;
+  --surface: #1e293b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --track-bg: #334155;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Glassmorphism panel style */
+  .glass-panel {
+    @apply bg-surface/90 backdrop-blur-md border border-text/5 shadow-xl rounded-2xl;
+  }
+  
+  /* Shared input style */
+  .input-field {
+    @apply w-full bg-background border border-text/10 rounded-lg px-4 py-2 text-text focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+  }
+  
+  /* Modern slider override */
+  input[type=range] {
+    @apply h-2 rounded-lg appearance-none cursor-pointer border border-text/5;
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    @apply appearance-none w-5 h-5 bg-primary rounded-full shadow-lg border-2 border-background cursor-pointer hover:scale-110 active:scale-95 transition-transform;
+  }
+}
