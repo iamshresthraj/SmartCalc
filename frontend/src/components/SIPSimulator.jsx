@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AreaChart, Area, XAxis, YAxis, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, Tooltip as RechartsTooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
 import { Card, Slider, InfoTooltip } from './ui/SharedUI';
 
 const SIPSimulator = () => {
@@ -127,6 +127,31 @@ const SIPSimulator = () => {
             )}
           </div>
         </Card>
+
+        {data && (
+          <Card className="flex flex-col items-center">
+            <h3 className="text-xl font-bold text-text mb-4 self-start">Investment Breakdown</h3>
+            <div className="w-full h-[280px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={[
+                      { name: 'Amount Invested', value: data.total_invested },
+                      { name: 'Wealth Gained', value: data.wealth_gained },
+                    ]}
+                    cx="50%" cy="50%" innerRadius={70} outerRadius={110}
+                    paddingAngle={4} dataKey="value" strokeWidth={0}
+                  >
+                    <Cell fill="#6366f1" />
+                    <Cell fill="#22c55e" />
+                  </Pie>
+                  <RechartsTooltip formatter={(value) => formatCurrency(value)} contentStyle={{ backgroundColor: 'var(--surface)', border: '1px solid var(--track-bg)', borderRadius: '12px', color: 'var(--text)' }} itemStyle={{ color: 'var(--text)' }} />
+                  <Legend iconType="circle" formatter={(value) => <span style={{ color: 'var(--text)' }}>{value}</span>} />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </Card>
+        )}
       </div>
     </div>
   );

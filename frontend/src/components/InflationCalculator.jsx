@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AreaChart, Area, XAxis, YAxis, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar, Cell, CartesianGrid } from 'recharts';
 import { Card, Slider, InfoTooltip } from './ui/SharedUI';
 
 const InflationCalculator = () => {
@@ -112,6 +112,34 @@ const InflationCalculator = () => {
             )}
           </div>
         </Card>
+
+        {data && (
+          <Card>
+            <h3 className="text-xl font-bold text-text mb-4">Value Comparison</h3>
+            <div className="w-full h-[280px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={[
+                    { name: 'Today\'s Value', value: currentAmount },
+                    { name: 'Real Value After Inflation', value: data.future_purchasing_power },
+                    { name: 'Future Cost', value: data.future_cost },
+                  ]}
+                  margin={{ top: 10, right: 30, left: 30, bottom: 10 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--track-bg)" vertical={false} />
+                  <XAxis dataKey="name" stroke="var(--track-bg)" tick={{ fill: 'var(--muted)', fontSize: 12 }} />
+                  <YAxis stroke="var(--track-bg)" tick={{ fill: 'var(--muted)' }} tickFormatter={(val) => `₹${(val / 1000).toFixed(0)}k`} />
+                  <RechartsTooltip formatter={(value) => formatCurrency(value)} contentStyle={{ backgroundColor: 'var(--surface)', border: '1px solid var(--track-bg)', borderRadius: '12px', color: 'var(--text)' }} itemStyle={{ color: 'var(--text)' }} />
+                  <Bar dataKey="value" radius={[8, 8, 0, 0]} barSize={60}>
+                    <Cell fill="#6366f1" />
+                    <Cell fill="#ef4444" />
+                    <Cell fill="#eab308" />
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </Card>
+        )}
       </div>
     </div>
   );
