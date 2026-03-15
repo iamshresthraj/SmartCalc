@@ -1,0 +1,156 @@
+/* ===== FinCal Hackathon Design System ===== */
+
+:root {
+  /* Brand Colors */
+  --blue: #224c87;
+  --red: #da3832;
+  --grey: #919090;
+
+  /* Semantic Tokens – Light Mode */
+  --background: #f4f6f9;
+  --surface: #ffffff;
+  --surface-hover: #ebeef3;
+  --text: #1a2332;
+  --muted: #5a6577;
+  --primary: #224c87;
+  --accent: #da3832;
+  --border: #d4d9e1;
+  --track-bg: #d4d9e1;
+  --success: #1a8954;
+  --warning: #c98a1a;
+  --danger: #da3832;
+  --card-shadow: 0 2px 16px rgba(34,76,135,0.06);
+}
+
+.dark {
+  --background: #111827;
+  --surface: #1f2937;
+  --surface-hover: #2a3649;
+  --text: #f1f3f7;
+  --muted: #94a3b8;
+  --primary: #5b8dd9;
+  --accent: #e8605b;
+  --border: #374151;
+  --track-bg: #374151;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --card-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection { background: rgba(34,76,135,0.2); }
+
+/* ===== Glass Panel ===== */
+.glass-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.glass-panel:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 24px rgba(34,76,135,0.12);
+}
+
+/* ===== Slider Styling ===== */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid var(--surface);
+  box-shadow: 0 0 0 3px var(--primary);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid var(--surface);
+  box-shadow: 0 0 0 3px var(--primary);
+  cursor: pointer;
+}
+input[type="range"]:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+/* ===== Number Input ===== */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ===== Focus Indicator (Accessibility) ===== */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===== Disclaimer ===== */
+.disclaimer-bar {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 16px 24px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ===== Responsive Helpers ===== */
+@media (max-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ===== Animated Number ===== */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-number {
+  animation: countUp 0.4s ease-out;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
