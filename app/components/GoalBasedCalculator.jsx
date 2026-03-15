@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
-import { Card, Slider, InfoTooltip, FormulaExplainer, ResultCard, Disclaimer } from './ui/SharedUI';
+import { Card, Slider, InfoTooltip, FormulaExplainer, ResultCard } from './ui/SharedUI';
 import { calculateGoalBased, formatCurrency } from '@/lib/calculations';
 
 export default function GoalBasedCalculator() {
@@ -79,7 +79,7 @@ export default function GoalBasedCalculator() {
                           <stop offset="95%" stopColor="#224c87" stopOpacity={0.05} />
                         </linearGradient>
                       </defs>
-                      <XAxis dataKey="year" stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => `Yr ${v}`} />
+                      <XAxis dataKey="year" stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => v} />
                       <YAxis stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => `₹${(v/100000).toFixed(1)}L`} />
                       <Tooltip contentStyle={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '12px', color: 'var(--text)' }} formatter={v => formatCurrency(v)} labelFormatter={l => `Year ${l}`} />
                       <Area type="monotone" dataKey="value" name="Accumulated SIP" stroke="#224c87" strokeWidth={3} fill="url(#goalValue)" />
@@ -111,7 +111,6 @@ export default function GoalBasedCalculator() {
           )}
         </div>
       </div>
-      <Disclaimer />
     </article>
   );
 }

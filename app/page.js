@@ -173,8 +173,8 @@ export default function Home() {
         </AnimatePresence>
       </main>
 
-      {/* Footer Disclaimer */}
-      {!activeModule && <Disclaimer />}
+      {/* Global Footer Disclaimer */}
+      <Disclaimer />
     </div>
   );
 }

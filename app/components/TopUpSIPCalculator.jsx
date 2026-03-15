@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, Cell, CartesianGrid } from 'recharts';
-import { Card, Slider, InfoTooltip, FormulaExplainer, ResultCard, Disclaimer } from './ui/SharedUI';
+import { Card, Slider, InfoTooltip, FormulaExplainer, ResultCard } from './ui/SharedUI';
 import { calculateTopUpSIP, formatCurrency } from '@/lib/calculations';
 
 export default function TopUpSIPCalculator() {
@@ -69,7 +69,7 @@ export default function TopUpSIPCalculator() {
                           <stop offset="95%" stopColor="#919090" stopOpacity={0.05} />
                         </linearGradient>
                       </defs>
-                      <XAxis dataKey="year" stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => `Yr ${v}`} />
+                      <XAxis dataKey="year" stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => v} />
                       <YAxis stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => `₹${(v/100000).toFixed(1)}L`} />
                       <Tooltip contentStyle={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '12px', color: 'var(--text)' }} formatter={v => formatCurrency(v)} labelFormatter={l => `Year ${l}`} />
                       <Area type="monotone" dataKey="value" name="Corpus Value" stroke="#224c87" strokeWidth={3} fill="url(#topupValue)" />
@@ -85,7 +85,7 @@ export default function TopUpSIPCalculator() {
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={result.yearlyData} margin={{ top: 10, right: 30, left: 30, bottom: 0 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
-                      <XAxis dataKey="year" stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => `Yr ${v}`} />
+                      <XAxis dataKey="year" stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => v} />
                       <YAxis stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => `₹${(v/1000).toFixed(0)}k`} />
                       <Tooltip contentStyle={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '12px', color: 'var(--text)' }} formatter={v => formatCurrency(v)} labelFormatter={l => `Year ${l}`} />
                       <Bar dataKey="sip" name="Monthly SIP" fill="#224c87" radius={[6, 6, 0, 0]} />
@@ -97,7 +97,6 @@ export default function TopUpSIPCalculator() {
           )}
         </div>
       </div>
-      <Disclaimer />
     </article>
   );
 }

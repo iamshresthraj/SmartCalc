@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Info, ChevronDown, ChevronUp } from 'lucide-react';
 
 /* ============ Card ============ */
-export function Card({ children, className = '', ...props }) {
+export function Card({ children, className = '', style, ...props }) {
   return (
     <section
       className={`glass-panel ${className}`}
-      style={{ padding: '24px', ...props.style }}
+      style={{ padding: '24px', ...style }}
       {...props}
     >
       {children}

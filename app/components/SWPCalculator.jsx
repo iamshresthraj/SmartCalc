@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
-import { Card, Slider, InfoTooltip, FormulaExplainer, ResultCard, Disclaimer } from './ui/SharedUI';
+import { Card, Slider, InfoTooltip, FormulaExplainer, ResultCard } from './ui/SharedUI';
 import { calculateSWP, formatCurrency } from '@/lib/calculations';
 
 export default function SWPCalculator() {
@@ -76,7 +76,7 @@ export default function SWPCalculator() {
                           <stop offset="95%" stopColor="#da3832" stopOpacity={0.05} />
                         </linearGradient>
                       </defs>
-                      <XAxis dataKey="year" stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => `Yr ${v}`} />
+                      <XAxis dataKey="year" stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => v} />
                       <YAxis stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => `₹${(v/100000).toFixed(1)}L`} />
                       <Tooltip contentStyle={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '12px', color: 'var(--text)' }} formatter={v => formatCurrency(v)} labelFormatter={l => `Year ${l}`} />
                       <ReferenceLine y={0} stroke="var(--danger)" strokeDasharray="3 3" />
@@ -89,7 +89,6 @@ export default function SWPCalculator() {
           )}
         </div>
       </div>
-      <Disclaimer />
     </article>
   );
 }

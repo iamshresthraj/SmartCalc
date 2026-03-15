@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend, ReferenceLine } from 'recharts';
-import { Card, Slider, InfoTooltip, FormulaExplainer, ResultCard, Disclaimer } from './ui/SharedUI';
+import { Card, Slider, InfoTooltip, FormulaExplainer, ResultCard } from './ui/SharedUI';
 import { calculateRetirement, formatCurrency } from '@/lib/calculations';
 
 export default function RetirementCalculator() {
@@ -86,7 +86,7 @@ export default function RetirementCalculator() {
                           <stop offset="95%" stopColor="#224c87" stopOpacity={0.05} />
                         </linearGradient>
                       </defs>
-                      <XAxis dataKey="year" stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => `Yr ${v}`} />
+                      <XAxis dataKey="year" stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => v} />
                       <YAxis stroke="var(--border)" tick={{ fill: 'var(--muted)', fontSize: 12 }} tickFormatter={v => `₹${(v/100000).toFixed(0)}L`} />
                       <Tooltip contentStyle={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '12px', color: 'var(--text)' }} formatter={v => formatCurrency(v)} labelFormatter={l => `Year ${l}`} />
                       <ReferenceLine x={yearsToRetirement} stroke="var(--accent)" strokeDasharray="4 4" label={{ value: 'Retirement', fill: 'var(--accent)', fontSize: 12 }} />
@@ -99,7 +99,6 @@ export default function RetirementCalculator() {
           )}
         </div>
       </div>
-      <Disclaimer />
     </article>
   );
 }
