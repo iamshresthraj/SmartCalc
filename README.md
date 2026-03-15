@@ -1,74 +1,62 @@
 # SmartCalc – Interactive Financial Learning Platform
 
-![SmartCalc Banner](public/assets/docs/hero_banner.png)
+SmartCalc is a professional financial education and calculation platform developed for the FinCal Innovation Hackathon. The application is designed to provide users with a transparent, interactive, and educational experience, moving beyond traditional spreadsheet layouts to foster a deeper understanding of financial planning.
 
-SmartCalc is a modern, interactive financial calculator platform designed for the **FinCal Innovation Hackathon**. It transforms traditional spreadsheet-style tools into a visually engaging and educational experience for everyday investors.
+## Project Overview
 
----
+The primary objective of SmartCalc is to improve financial literacy among everyday investors. It achieves this by providing real-time data visualization and interactive controls for complex financial scenarios. The project adheres to strict regulatory and brand guidelines, ensuring a focus on education rather than commercial promotion.
 
-## 🚀 Key Highlights
+## Core Features
 
-- **Visual Literacy**: Dynamic charts and interactive sliders make complex finance intuitive.
-- **Brand Alignment**: Designed with precision using brand-compliant colors (`#224c87`, `#da3832`).
-- **Accessibility First**: Fully **WCAG 2.1 AA** compliant for an inclusive financial future.
-- **Transparency**: Step-by-step formula explainers for every calculation.
+### Systematic Investment Planning
+The SIP module illustrates how regular monthly investments accumulate wealth over time through the power of compounding. It includes detailed breakdowns of total investment versus potential gains.
 
----
+### Systematic Withdrawal Planning
+The SWP module assists users in planning sustainable withdrawal strategies from a fixed corpus. It includes safety indicators to identify potential corpus depletion based on withdrawal rates and expected returns.
 
-## 📱 Interactive Modules
+### Top-Up SIP Analysis
+This advanced module demonstrates the significant impact of annual step-ups on long-term wealth creation. It calculates the difference in outcomes when investors increase their contributions in line with income growth.
 
-### 1. SIP Calculator
-| Growth Visualization | Wealth Composition |
-| :---: | :---: |
-| ![SIP Chart](public/assets/docs/sip_calculator.png) | *Compound interest in action* |
+### Goal-Based Financial Planning
+The goal planner incorporates inflation-adjusted calculations to determine the exact monthly investment required to reach specific future financial milestones.
 
-### 2. Retirement Planner (Dark Mode)
-![Retirement Planner](public/assets/docs/dark_mode_retirement.png)
-*Plan your transition from the Accumulation phase to the Withdrawal phase with inflation-adjusted precision.*
+### Retirement Strategy
+Complexity is handled through a dual-phase accumulation and withdrawal model. It calculates the necessary corpus based on desired retirement expenses and identifies the monthly SIP required to reach that goal.
 
-### 3. Comprehensive Feature Set
-- **SWP Calculator**: Map out your corpus depletion with safety warnings.
-- **Top-Up SIP**: See how 10% annual increases can double your wealth.
-- **Goal-Based Investing**: Reverse-engineer your SIP from a future milestone cost.
+## Technical Implementation
 
----
+### Architecture
+- Framework: Next.js 15
+- Logic: Client-side JavaScript (Pure Financial Mathematics)
+- State Management: React Hooks
+- Visualization: Rendered via Recharts
 
-## 🛠️ Technical Excellence
+### Design and Accessibility
+- Typography: Montserrat (Brand Standard)
+- Color Palette: #224c87 (Brand Blue) and #da3832 (Brand Red)
+- Compliance: WCAG 2.1 AA standards
+- Interface: Minimalist Glassmorphism design system
 
-- **Core**: Next.js 15 (App Router)
-- **Styling**: Modern CSS System (Glassmorphism + Semantic Tokens)
-- **DataViz**: Real-time rendering with Recharts
-- **Aesthetics**: Framer Motion for premium micro-interactions
+## Installation and Deployment
 
----
+### Development Environment
+To run the project locally, follow these steps:
 
-## 🏃 How to Run Locally
-
-1. **Clone & Enter**:
-   ```bash
+1. Clone the repository:
    git clone https://github.com/iamshresthraj/SmartCalc.git
-   cd SmartCalc
-   ```
 
-2. **Setup**:
-   ```bash
+2. Install dependencies:
    npm install
-   ```
 
-3. **Launch**:
-   ```bash
+3. Start the development server:
    npm run dev
-   ```
 
-4. **Navigate**:
-   Open [http://localhost:3000](http://localhost:3000)
+4. Access the application:
+   Navigate to http://localhost:3000
 
----
+## Compliance and Regulatory Disclaimer
 
-## ⚖️ Compliance & Disclaimer
-
-> [!IMPORTANT]
-> This tool has been designed for information purposes only. Actual results may vary depending on various factors involved in capital market. Investor should not consider above as a recommendation for any schemes of HDFC Mutual Fund. Past performance may or may not be sustained in future and is not a guarantee of any future returns.
+Significant Importance: This tool is designed for information purposes only. Actual results may vary depending on various factors involved in capital markets. The results provided by these calculators should not be considered as recommendations for any specific investment schemes. Past performance is not an indicator of future results and is not a guarantee of future returns.
 
 ---
-Built for the **FinCal Innovation Hackathon**
+Developed for the FinCal Innovation Hackathon
