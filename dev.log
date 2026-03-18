@@ -1,0 +1,12 @@
+
+> smartcalc-next@0.1.0 dev
+> next dev -p 3002
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3002
+- Network:       http://192.168.134.1:3002
+
+Γ£ô Starting...
+Γ£ô Ready in 978ms
+Γùï Compiling / ...
+ GET / 200 in 4.0s (compile: 3.8s, render: 246ms)
