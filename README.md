@@ -1,6 +1,6 @@
 # SmartCalc – Interactive Financial Learning Platform
 
-Demo Video: https://github.com/iamshresthraj/SmartCalc/raw/main/public/demo-video.mp4
+https://github.com/iamshresthraj/SmartCalc/raw/main/public/demo-video.mp4
 
 SmartCalc is a professional financial education and calculation platform developed for the FinCal Innovation Hackathon. The application is designed to provide users with a transparent, interactive, and educational experience, moving beyond traditional spreadsheet layouts to foster a deeper understanding of financial planning.
 
